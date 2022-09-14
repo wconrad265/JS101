@@ -1,0 +1,24 @@
+{
+  "en" : {
+    "welcomeMessage" : "Welcome to Calculator, for english type en, for spanish type es",
+    "invalidLanguage" : "Invalid Input: Please enter en for English or es for Spanish ",
+    "firstNumber" : "What is your first number?",
+    "secondNumber" : "What is your second number?",
+    "invalidNumber" : "Hmm... that doesn't look like a valid number.",
+    "operationPrompt" : "What operation would you like to preform\n1) Add 2) Subtract 3) Mutiply 4) Divide",
+    "invalidOperation" : "Must choose 1,2,3,4",
+    "anotherCalcualtion" : "Would you like to do another calculator, enter yes or no?",
+    "thankYou" : "Thank you for using calculator!"
+  },
+  "es" : {
+    "welcomeMessage" : "Bienvenido a la calculadora, para inglés escriba en, para español escriba es",
+    "invalidLanguage" : "Entrada no válida: Ingrese en para inglés o es para español",
+    "firstNumber" : "What is your first number?",
+    "secondNumber" : "¿Cuál es tu segundo número?",
+    "invalidNumber" : "Hmm... eso no parece un número de valor.",
+    "operationPrompt" : "¿Qué operación le gustaría realizar\n1) Sumar 2) Restar 3) Multiplicar 4) Dividir",
+    "invalidOperation" : "Debe elegir 1,2,3,4",
+    "anotherCalcualtion" : "¿Te gustaría hacer otra calculadora, ingresa sí o no?",
+    "thankYou" : "¡Gracias por usar la calculadora!"
+}
+}
