@@ -1,0 +1,124 @@
+ function that returns the sum of two numbers
+
+
+Given two numbers
+ -save the first number as variable 1
+ -save the second variable as variable 2
+ -create function with two inputs
+ -function returns the sum of the two inputs
+ -two inputs are variable 1 and variable 
+ 
+
+a function that takes an array of strings, and returns a string that is all those strings concatenated together
+
+Given array of strings
+-save new string as empty string
+
+Iterate through of array of strings one by one
+-combine the empty string with each elment of the array
+-complete until reach end of string
+
+After iterating through array of strings, return the saved value
+
+A method that takes an array of integers, and returns a new array with every other element from the original array, starting with the first element. For instance:
+
+everyOther([1,4,7,2,5]); // => [1,7,5]
+
+Given array of integers
+-crate blank array
+-create for loop with starting value of 0
+-push first value to from array of integers to blank array
+-increment by 2, for only odd numbers
+
+After iterating through array of integers, return the new array
+
+Start 
+
+set iterator = 0
+set array = blank array
+
+While iterator < length of array of integers
+  Set array = value within array of integers at space 'iterator'
+  iterator = iterator + 2
+
+Print array
+
+End 
+
+a function that determines the index of the 3rd occurrence of a given character in a string. 
+For instance, if the given character is 'x' and the string is 'axbxcdxex', the function should return 6 (the index of the 3rd 'x'). 
+If the given character does not occur at least 3 times, return null.
+
+Given string of characters
+ 
+create function with two inputs string of characters & character you would like to find 3 times
+save variable named count equal to 0
+convert string of characters to array with each character an element
+Iterate through array of characters
+  -If count is equal to three
+    -stop iteration, and return postion of chracater in array 
+  -if current character in array is equal to character you would like to find
+    -increase count by 1
+  -continue iteration until count is equal to three or reach end of string
+
+After iterating array of characters return null
+
+Start
+
+# Given string of characters & character you would like to see if it appears 3 times#
+
+SET iterator = 0
+SET count = 0
+SET array = string of characters (each element is character of array)
+
+WHILE iterator < array.length
+ If count === 3
+  PRINT position of current element'
+  END
+ ELSE If currentElement = character you woud like to see if it appears 3 times
+  count++
+ iterator = iterator + 1
+
+PRINT null
+
+END
+
+a function that takes two arrays of numbers and returns the result of merging the arrays. 
+The elements of the first array should become the elements at the even indexes of the returned array, 
+while the elements of the second array should become the elements at the odd indexes. For instance:
+
+merge([1, 2, 3], [4, 5, 6]); // => [1, 4, 2, 5, 3, 6]
+
+Given two arrays of equal length
+
+Iterate through the arrays one by one
+ -if iterator is 0 or even push value of first array to new array
+ -if iterator is odd, push value of second array to new array
+
+After iterating through the arrays, return the saved value
+
+Start
+
+# Given two arrays of equal length #
+
+SET array = blank array
+SET iterator = 0
+SET iteratorArray1 = 0
+SET iteratorArray2 = 0
+
+WHILE  iterrator < array1.length
+ IF remainder of iterator = 0
+  array[iterator] = array1[iteratorArray1]
+  iteratorArray1 = iteratorArray1 + 1
+ ELSE IF remainder of iterator != 0
+  array[iterator] = array2[iteratorArray2]
+  iteratorArray2 = iteratorArray2 + 1
+ iterator = iterator + 1
+
+PRINT array
+
+END
+
+
+
+ 
