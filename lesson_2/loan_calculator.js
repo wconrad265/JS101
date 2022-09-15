@@ -59,7 +59,6 @@ do {
   prompt('welcomeMessage');
 
   let loanAmount = numberPrompt('loanAmountMessage');
-  console.log(loanAmount);
 
   let apr = numberPrompt('aprMessage') / 100;
 
