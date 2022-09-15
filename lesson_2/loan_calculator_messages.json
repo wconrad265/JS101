@@ -1,0 +1,10 @@
+{
+  "welcomeMessage" : "Welcome to the mortgage/car loan calculator.",
+  "loanAmountMessage" : "Please enterh the loan amount.",
+  "invalidNumber" : "Number entered was invalid, please enter a valid number",
+  "aprMessage" : "Please enter the apr of the loan as a full number. example: 5.5% or 5.5",
+  "loanDurationYearsMessage" : "Please enter how many years the loan is for, do not include months.",
+  "loanDurationMonthsMessage" : "Please enter how many months the loan is for",
+  "anotherCalculation" : "Would you like to calculate another monthly payment? \n=> Please enter yes or no",
+  "thankYou" : "Thank you for using the mortage/car loan calculator!"
+}
