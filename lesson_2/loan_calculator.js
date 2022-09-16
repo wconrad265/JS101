@@ -33,8 +33,15 @@ END
 
 const readline = require('readline-sync');
 const MESSAGES = require('./loan_calculator_messages.json');
-let answer;
+const MONTHS_IN_YEAR = 12;
 
+let loanAmount;
+let intrestRate;
+let loanDurationYears;
+let loanDurationMonths;
+let loanDuration;
+let apr;
+let answer;
 
 function prompt(msg) {
   let message = MESSAGES[msg];
@@ -42,42 +49,109 @@ function prompt(msg) {
 }
 
 function invalidNumber(number) {
-  return number.trimStart() === '' || Number.isNaN(Number(number));
+  return number.trim() === '' || Number.isNaN(Number(number));
+}
+
+function invalidWholeNumber(number) {
+  return number.trim() === '' || Number.isNaN(Number(number)) || !(Math.round(Number(number)) === Number(number));
+}
+
+function checkZero(num) {
+  let nonZero = numberPrompt(num);
+
+  while (nonZero === 0) {
+    prompt('checkZero');
+    nonZero = numberPrompt(num);
+  }
+  return nonZero;
 }
 
 function numberPrompt(msg) {
+
   prompt(msg);
   let answer = readline.question().replace(',',"").replace('%',"");
+
   while (invalidNumber(answer)) {
     prompt('invalidNumber');
-    answer = readline.question()
+    answer = readline.question().replace(',',"").replace('%',"");
   }
+
   return Number(Math.abs(answer));
 }
+function wholeNumberPrompt(str) {
 
-do {
-  prompt('welcomeMessage');
+  prompt(str);
+  let wholeAnswer = readline.question().replace(',',"").replace('%',"");
 
-  let loanAmount = numberPrompt('loanAmountMessage');
+  while (invalidWholeNumber(wholeAnswer)) {
+    prompt('wholeNumber');
+    wholeAnswer = readline.question().replace(',',"").replace('%',"");
+  }
 
-  let apr = numberPrompt('aprMessage') / 100;
+  return Number(Math.abs(wholeAnswer));
+}
 
-  let intrestRate = apr / 12;
+function calculateMonthlyPayment() {
+  if (intrestRate === 0) {
+    return loanAmount / (loanDuration);
+  } else {
+    return loanAmount *
+      (intrestRate / (1 - Math.pow((1 + intrestRate), (-loanDuration))));
+  }
+}
 
-  let loanDurationYears = numberPrompt('loanDurationYearsMessage');
+function loanDurationZero() {
+  while (loanDuration === 0) {
+    prompt('loanDurationZero')
 
-  let loanDurationMonths = numberPrompt('loanDurationMonthsMessage') / 12;
+    loanDurationYears = wholeNumberPrompt('loanDurationYearsMessage');
 
-  let loanDuration = (loanDurationYears * 12) + loanDurationMonths;
+    loanDurationMonths = wholeNumberPrompt('loanDurationMonthsMessage') / MONTHS_IN_YEAR;
 
-  // eslint-disable-next-line max-len
-  let monthlyPayment = loanAmount * (intrestRate / (1 - Math.pow((1 + intrestRate), (-loanDuration))));
+    loanDuration = (loanDurationYears * 12) + loanDurationMonths;
+  }
+}
 
-  console.log(`Your monthly payment is: $${Number(monthlyPayment).toFixed(2)}`);
-
+function anotherCalculation() {
   prompt('anotherCalculation');
   answer = readline.question().toLowerCase();
+  anotherCalculationCheck();
+}
 
-} while (answer === 'yes');
+function anotherCalculationCheck() {
+  while (answer[0]  !== 'n' && answer[0] !== 'y') {
+    prompt('Please enter "y" or "n")');
+    answer = readline.question().toLowerCase();
+  }
+}
+while (true) {
+  prompt('welcomeMessage');
 
+  loanAmount = checkZero('loanAmountMessage');
+
+  console.log(loanAmount);
+
+  apr = numberPrompt('aprMessage') / 100;
+
+  intrestRate = apr / MONTHS_IN_YEAR;
+
+  loanDurationYears = wholeNumberPrompt('loanDurationYearsMessage');
+
+  loanDurationMonths = wholeNumberPrompt('loanDurationMonthsMessage') / MONTHS_IN_YEAR;
+
+  loanDuration = (loanDurationYears * 12) + loanDurationMonths;
+
+  loanDurationZero();
+
+  let monthlyPayment = calculateMonthlyPayment();
+
+  console.log(`Your monthly payment is: $${Number(monthlyPayment).toFixed(2)}\n`);
+
+  anotherCalculation();
+
+  if (answer[0] !== 'y') break;
+  prompt('-');
+
+}
+prompt('-');
 prompt('thankYou');
