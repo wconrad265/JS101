@@ -53,7 +53,7 @@ function invalidNumber(number) {
 }
 
 function invalidWholeNumber(number) {
-  return number.trim() === '' || Number.isNaN(Number(number)) || !(Math.round(Number(number)) === Number(number));
+  return number.trim() === '' || Number.isNaN(Number(number)) || !(Math.floor(Number(number)) === Number(number));
 }
 
 function checkZero(num) {
@@ -102,7 +102,7 @@ function calculateMonthlyPayment() {
 
 function loanDurationZero() {
   while (loanDuration === 0) {
-    prompt('loanDurationZero')
+    prompt('loanDurationZero');
 
     loanDurationYears = wholeNumberPrompt('loanDurationYearsMessage');
 
